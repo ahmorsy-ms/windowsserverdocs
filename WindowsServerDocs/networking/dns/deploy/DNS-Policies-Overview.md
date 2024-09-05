@@ -12,7 +12,7 @@ ms.date: 06/23/2022
 
 >Applies to: Windows Server 2022, Windows Server 2019, Windows Server 2016
 
-You can use this topic to learn about DNS Policy, which is new in Windows Server 2016. You can use DNS Policy for Geo-Location based traffic management, intelligent DNS responses based on the time of day, to manage a single DNS server configured for split\-brain deployment, applying filters on DNS queries, and more. The following items provide more detail about these capabilities.
+You can use this topic to learn about DNS Policy, which is new starting from Windows Server 2016 and later. You can use DNS Policy for Geo-Location based traffic management, intelligent DNS responses based on the time of day, to manage a single DNS server configured for split\-brain deployment, applying filters on DNS queries, and more. The following items provide more detail about these capabilities.
 
 -   **Application Load Balancing.** When you have deployed multiple instances of an application at different locations, you can use DNS policy to balance the traffic load between the different application instances, dynamically allocating the traffic load for the application.
 
@@ -137,7 +137,7 @@ The first two lines of the script create client subnet objects for North America
 You can use a DNS Query Resolution Policy to block queries to a domain. The example below blocks all queries to treyresearch.net:
 
 ```
-Add-DnsServerQueryResolutionPolicy -Name "BlackholePolicy" -Action IGNORE -FQDN "EQ,*.treyresearch.com"
+Add-DnsServerQueryResolutionPolicy -Name "BlackholePolicy" -Action IGNORE -FQDN "EQ,*.treyresearch.net"
 ```
 
 ### Block queries from a subnet
