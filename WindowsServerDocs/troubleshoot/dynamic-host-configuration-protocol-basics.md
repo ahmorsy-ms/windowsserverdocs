@@ -10,6 +10,8 @@ ms.reviewer:
 ---
 # DHCP (Dynamic Host Configuration Protocol) Basics
 
+>Applies to: Windows Server 2022, Windows Server 2019, Windows Server 2016, Windows 11, Windows 10
+
 Dynamic Host Configuration Protocol (DHCP) is a standard protocol defined by RFC 1541 (which is superseded by RFC 2131) that allows a server to dynamically distribute IP addressing and configuration information to clients. Normally the DHCP server provides the client with at least this basic information:
 
 - IP Address
@@ -19,32 +21,6 @@ Dynamic Host Configuration Protocol (DHCP) is a standard protocol defined by RFC
 - Default Gateway
 
 Other information can be provided as well, such as Domain Name Service (DNS) server addresses and Windows Internet Name Service (WINS) server addresses. The system administrator configures the DHCP server with the options that are parsed out to the client.
-
-## More Information
-
-The following Microsoft products provide DHCP client functionality:
-
-- Windows NT Server versions 3.5, 3.51, and 4.0
-
-- Windows NT Workstation versions 3.5, 3.51, and 4.0
-
-- Windows 95
-
-- Microsoft Network Client version 3.0 for MS-DOS
-
-- Microsoft LAN Manager Client version 2.2c for MS-DOS
-
-- Microsoft TCP/IP-32 for Windows for Workgroups versions 3.11, 3.11a, and 3.11b
-
-Different DHCP clients support different options that they can receive from the DHCP server.
-
-The following Microsoft server operating systems provide DHCP server functionality:
-
-- Windows NT Server version 3.5
-
-- Windows NT Server version 3.51
-
-- Windows NT Server version 4.0
 
 When a client is initialized for the first time after it is configured to receive DHCP information, it initiates a conversation with the server.
 
@@ -109,7 +85,7 @@ DHCP: Discover (xid=21274A1D)
  DHCP: Option Field (options)
  DHCP: DHCP Message Type = DHCP Discover
  DHCP: Client-identifier = (Type: 1) 08 00 2b 2e d8 5e
- DHCP: Host Name = JUMBO-WS
+ DHCP: Host Name = Host1
  DHCP: Parameter Request List = (Length: 7) 01 0f 03 2c 2e 2f 06
  DHCP: End of this option field
 
@@ -138,7 +114,7 @@ IP: ID = 0x3C30; Proto = UDP; Len: 328
  IP: Time to Live = 128 (0x80)
  IP: Protocol = UDP - User Datagram
  IP: Checksum = 0x2FA8
- IP: Source Address = 157.54.48.151
+ IP: Source Address = 192.168.48.151
  IP: Destination Address = 255.255.255.255
  IP: Data: Number of data bytes remaining = 308 (0x0134)
 
@@ -152,7 +128,7 @@ DHCP: Offer (xid=21274A1D)
  DHCP: Flags (flags) = 0 (0x0)
  DHCP: 0............... = No Broadcast
  DHCP: Client IP Address (ciaddr) = 0.0.0.0
- DHCP: Your IP Address (yiaddr) = 157.54.50.5
+ DHCP: Your IP Address (yiaddr) = 192.168.50.5
  DHCP: Server IP Address (siaddr) = 0.0.0.0
  DHCP: Relay IP Address (giaddr) = 0.0.0.0
  DHCP: Client Ethernet Address (chaddr) = 08002B2ED85E
@@ -165,9 +141,9 @@ DHCP: Offer (xid=21274A1D)
  DHCP: Renewal Time Value (T1) = 8 Days, 0:00:00
  DHCP: Rebinding Time Value (T2) = 14 Days, 0:00:00
  DHCP: IP Address Lease Time = 16 Days, 0:00:00
- DHCP: Server Identifier = 157.54.48.151
- DHCP: Router = 157.54.48.1
- DHCP: NetBIOS Name Service = 157.54.16.154
+ DHCP: Server Identifier = 192.168.48.151
+ DHCP: Router = 192.168.48.1
+ DHCP: NetBIOS Name Service = 192.168.16.154
  DHCP: NetBIOS Node Type = (Length: 1) 04
  DHCP: End of this option field
 
@@ -220,9 +196,9 @@ DHCP: Request (xid=21274A1D)
  DHCP: Option Field (options)
  DHCP: DHCP Message Type = DHCP Request
  DHCP: Client-identifier = (Type: 1) 08 00 2b 2e d8 5e
- DHCP: Requested Address = 157.54.50.5
- DHCP: Server Identifier = 157.54.48.151
- DHCP: Host Name = JUMBO-WS
+ DHCP: Requested Address = 192.168.50.5
+ DHCP: Server Identifier = 192.168.48.151
+ DHCP: Host Name = Host1
  DHCP: Parameter Request List = (Length: 7) 01 0f 03 2c 2e 2f 06
  DHCP: End of this option field
 
@@ -251,7 +227,7 @@ IP: ID = 0x3D30; Proto = UDP; Len: 328
  IP: Time to Live = 128 (0x80)
  IP: Protocol = UDP - User Datagram
  IP: Checksum = 0x2EA8
- IP: Source Address = 157.54.48.151
+ IP: Source Address = 192.168.48.151
  IP: Destination Address = 255.255.255.255
  IP: Data: Number of data bytes remaining = 308 (0x0134)
 
@@ -265,7 +241,7 @@ DHCP: ACK (xid=21274A1D)
  DHCP: Flags (flags) = 0 (0x0)
  DHCP: 0............... = No Broadcast
  DHCP: Client IP Address (ciaddr) = 0.0.0.0
- DHCP: Your IP Address (yiaddr) = 157.54.50.5
+ DHCP: Your IP Address (yiaddr) = 192.168.50.5
  DHCP: Server IP Address (siaddr) = 0.0.0.0
  DHCP: Relay IP Address (giaddr) = 0.0.0.0
  DHCP: Client Ethernet Address (chaddr) = 08002B2ED85E
@@ -277,10 +253,10 @@ DHCP: ACK (xid=21274A1D)
  DHCP: Renewal Time Value (T1) = 8 Days, 0:00:00
  DHCP: Rebinding Time Value (T2) = 14 Days, 0:00:00
  DHCP: IP Address Lease Time = 16 Days, 0:00:00
- DHCP: Server Identifier = 157.54.48.151
+ DHCP: Server Identifier = 192.168.48.151
  DHCP: Subnet Mask = 255.255.240.0
- DHCP: Router = 157.54.48.1
- DHCP: NetBIOS Name Service = 157.54.16.154
+ DHCP: Router = 192.168.48.1
+ DHCP: NetBIOS Name Service = 192.168.16.154
  DHCP: NetBIOS Node Type = (Length: 1) 04
  DHCP: End of this option field
 
@@ -331,8 +307,8 @@ DHCP: Request (xid=2757554E)
  DHCP: Option Field (options)
  DHCP: DHCP Message Type = DHCP Request
  DHCP: Client-identifier = (Type: 1) 08 00 2b 2e d8 5e
- DHCP: Requested Address = 157.54.50.5
- DHCP: Host Name = JUMBO-WS
+ DHCP: Requested Address = 192.168.50.5
+ DHCP: Host Name = Host1
  DHCP: Parameter Request List = (Length: 7) 01 0f 03 2c 2e 2f 06
  DHCP: End of this option field
 
@@ -359,7 +335,7 @@ IP: ID = 0x3F1A; Proto = UDP; Len: 328
  IP: Time to Live = 128 (0x80)
  IP: Protocol = UDP - User Datagram
  IP: Checksum = 0x2CBE
- IP: Source Address = 157.54.48.151
+ IP: Source Address = 192.168.48.151
  IP: Destination Address = 255.255.255.255
  IP: Data: Number of data bytes remaining = 308 (0x0134)
 
@@ -382,7 +358,7 @@ DHCP: NACK (xid=74A005CE)
  DHCP: Magic Cookie = [OK]
  DHCP: Option Field (options)
  DHCP: DHCP Message Type = DHCP NACK
- DHCP: Server Identifier = 157.54.48.151
+ DHCP: Server Identifier = 192.168.48.151
  DHCP: End of this option field
 
 ```
@@ -432,8 +408,8 @@ DHCP: Discover (xid=3ED14752)
  DHCP: Option Field (options)
  DHCP: DHCP Message Type = DHCP Discover
  DHCP: Client-identifier = (Type: 1) 08 00 2b 2e d8 5e
- DHCP: Requested Address = 157.54.51.5
- DHCP: Host Name = JUMBO-WS
+ DHCP: Requested Address = 192.168.51.5
+ DHCP: Host Name = Host1
  DHCP: Parameter Request List = (Length: 7) 01 0f 03 2c 2e 2f 06
  DHCP: End of this option field
 
@@ -441,9 +417,8 @@ DHCP: Discover (xid=3ED14752)
 
 DHCP information obtained by the client from a DHCP server will have a lease time associated with it. The lease time defines how long the client can use the DHCP-assigned information. When the lease reaches certain milestones, the client will attempt to renew its DHCP information.
 
-To view IP information on a Windows or Windows for Workgroups client, use the IPCONFIG utility. If the client is Windows 95, use WINIPCFG.
+To view IP information on a Windows or Windows for Workgroups client, use the IPCONFIG utility.
 
 ## References
 
-For more information about DHCP, see RFC1541 and RFC2131. RFCs may be obtained via the Internet at numerous sites, for example: [http://www.rfc-editor.org/](http://www.rfc-editor.org/)
-and [http://www.tech-nic.qc.ca/](http://www.tech-nic.qc.ca/)
+For more information about DHCP, see RFC1541 and RFC2131. RFCs may be obtained via the Internet at numerous sites, for example: [http://www.rfc-editor.org/](http://www.rfc-editor.org/).
